@@ -20,7 +20,8 @@ const FRONTEND_URL = "http://localhost:3000";
 app.use(express.json());
 app.use(
   cors({
-    origin: FRONTEND_URL,
+    // origin: FRONTEND_URL,
+   origin:"*",
   })
 );
 
@@ -107,4 +108,5 @@ module.exports = app;
 //     );
 //   })
   // .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
+
 
