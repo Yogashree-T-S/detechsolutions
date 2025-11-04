@@ -85,15 +85,26 @@ app.post("/api/contact", async (req, res) => {
 });
 
 // ========== CONNECT TO DATABASE ==========
+
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => {
-    console.log("✅ MongoDB connected successfully");
-    app.listen(PORT, () =>
-      console.log(`🚀 Server running on http://localhost:${PORT}`)
-    );
-  })
+  .then(() => console.log("✅ MongoDB connected successfully"))
   .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
+
+module.exports = app;
+// mongoose
+//   .connect(MONGO_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//   })
+//   .then(() => {
+//     console.log("✅ MongoDB connected successfully");
+//     app.listen(PORT, () =>
+//       console.log(`🚀 Server running on http://localhost:${PORT}`)
+//     );
+//   })
+  // .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
+
