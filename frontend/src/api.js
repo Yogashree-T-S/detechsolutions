@@ -1,4 +1,4 @@
-const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const BASE_URL = process.env.REACT_APP_API_URL || 'https://detechsolutions-beta.vercel.app/api';
 
 export async function fetchServices() {
   const res = await fetch(`${BASE_URL}/services`);
