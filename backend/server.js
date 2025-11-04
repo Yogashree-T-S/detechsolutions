@@ -21,7 +21,10 @@ app.use(express.json());
 app.use(
   cors({
     // origin: FRONTEND_URL,
-   origin:"*",
+   // origin:"*",
+   origin: "https://detechsolutions-63fq.vercel.app", // your frontend domain
+   methods: ["GET", "POST", "PUT", "DELETE"],
+   credentials: true
   })
 );
 
@@ -108,5 +111,6 @@ module.exports = app;
 //     );
 //   })
   // .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
+
 
 
