@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import { fetchProjects } from '../api';
+import { fetchServices } from '../api';
 
 export default function Projects(){
-  const [projects, setProjects] = useState([]);
-  useEffect(() => { fetchProjects().then(setProjects).catch(()=>{}) }, []);
+  const [services, setServices] = useState([]);
+  useEffect(()=>{ fetchServices().then(setServices).catch(()=>{}) }, []);
   return (
     <div className="container">
-      <h2>Projects</h2>
-      <div className="grid" style={{gridTemplateColumns:'repeat(auto-fit,minmax(240px,1fr))'}}>
-        {projects.map(p => (
-          <div className="card" key={p._id}>
-            <h4>{p.title}</h4>
-            <p>{p.description}</p>
-            {p.url && <a href={p.url} target="_blank" rel="noreferrer">View</a>}
+      <h2>Services</h2>
+      <div className="grid services">
+        {services.map(s => (
+          <div key={s.id} className="card">
+            <h4>{s.title}</h4>
+            <p>{s.desc}</p>
           </div>
         ))}
       </div>
