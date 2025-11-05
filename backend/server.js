@@ -63,7 +63,7 @@ app.get("/api/projects", async (req, res) => {
     { id: 2, title: "Mobile Apps", desc: "Cross-platform mobile apps." },
     { id: 3, title: "Cloud Solutions", desc: "AWS / DevOps / Hosting." },
   ];
-  res.json(services);
+  res.json(projects);
 });
 
 app.post("/api/contact", async (req, res) => {
