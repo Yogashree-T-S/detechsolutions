@@ -12,7 +12,7 @@ const PORT = 5000;
 
 // MongoDB connection URI (password encoded with %23 for '#')
 const MONGO_URI =
-  ""mongodb+srv://YogashreeTS:<Yxe14OqhZAwR20rXt#>@cluster0.sashice.mongodb.net/?appName=Cluster0"";
+  "mongodb+srv://YogashreeTS:<Yxe14OqhZAwR20rXt#>@cluster0.sashice.mongodb.net/?appName=Cluster0";
 
 const FRONTEND_URL = "http://localhost:3000";
 
@@ -97,4 +97,5 @@ mongoose
     );
   })
   .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
+
 
