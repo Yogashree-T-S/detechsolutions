@@ -48,7 +48,7 @@ app.get("/", (req, res) => {
   res.send("✅ DE Tech Solutions Backend Running Successfully");
 });
 
-app.get("/api/services", (req, res) => {
+app.get("/api/services", async (req, res) => {
   const services = [
     { id: 1, title: "Web Development", desc: "Full-stack React + Node.js." },
     { id: 2, title: "Mobile Apps", desc: "Cross-platform mobile apps." },
