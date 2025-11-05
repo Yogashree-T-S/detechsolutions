@@ -12,18 +12,15 @@ const PORT = 5000;
 
 // MongoDB connection URI (password encoded with %23 for '#')
 const MONGO_URI =
-  "mongodb+srv://YogashreeTS:<Yxe14OqhZAwR20rXt#>@cluster0.sashice.mongodb.net/?appName=Cluster0";
+  "mongodb+srv://jeywetech:%23YogaJeeva2003@filesir.r6vqxsc.mongodb.net/FileSIR?retryWrites=true&w=majority";
 
-const FRONTEND_URL = "https://detechsolutions-63fq.vercel.app";
+const FRONTEND_URL = "http://localhost:3000";
 
 // ========== MIDDLEWARE ==========
 app.use(express.json());
 app.use(
   cors({
     origin: FRONTEND_URL,
-   // origin:"*",
-   methods: ["GET", "POST", "PUT", "DELETE"],
-   credentials: true
   })
 );
 
@@ -61,12 +58,12 @@ app.get("/api/services", (req, res) => {
 });
 
 app.get("/api/projects", async (req, res) => {
-  try {
-    const projects = await Project.find().sort({ createdAt: -1 }).limit(10);
-    res.json(projects);
-  } catch (err) {
-    res.status(500).json({ error: "Error fetching projects" });
-  }
+  const projects = [
+    { id: 1, title: "Web Development", desc: "Full-stack React + Node.js." },
+    { id: 2, title: "Mobile Apps", desc: "Cross-platform mobile apps." },
+    { id: 3, title: "Cloud Solutions", desc: "AWS / DevOps / Hosting." },
+  ];
+  res.json(services);
 });
 
 app.post("/api/contact", async (req, res) => {
@@ -88,29 +85,15 @@ app.post("/api/contact", async (req, res) => {
 });
 
 // ========== CONNECT TO DATABASE ==========
-
 mongoose
   .connect(MONGO_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
-  .then(() => console.log("✅ MongoDB connected successfully"))
+  .then(() => {
+    console.log("✅ MongoDB connected successfully");
+    app.listen(PORT, () =>
+      console.log(`🚀 Server running on http://localhost:${PORT}`)
+    );
+  })
   .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
-
-module.exports = app;
-// mongoose
-//   .connect(MONGO_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true,
-//   })
-//   .then(() => {
-//     console.log("✅ MongoDB connected successfully");
-//     app.listen(PORT, () =>
-//       console.log(`🚀 Server running on http://localhost:${PORT}`)
-//     );
-//   })
-  // .catch((err) => console.error("❌ MongoDB connection failed:", err.message));
-
-
-
-
